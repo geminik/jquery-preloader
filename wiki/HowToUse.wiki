@@ -25,17 +25,17 @@ $(function (){
 </script>
 }}}
 
-You will have to pass an Array o elements to the function to load, here is how is an exemple:
+You will have to pass an Object with minimum content the load with an Array o elements to the function to load, here is how is an exemple:
 
 {{{
 <script type="text/javascript">
 $(function (){
-    $.preLoadGUI([
+    $.preLoadGUI({load: [
         ['bg.png', 'img'],
         ['jquery.progressbar.js', 'js'],
         ['port.css', 'css'],
         ['content.html', 'html', 'body']
-    ]);
+    ]});
 });	
 </script>
 }}}
@@ -46,6 +46,13 @@ Lets see:
  * *address_to_load.ext*: just put the address to load (can be an url etc);
  * *img|js|run|css*: actually, run & js are the same thing! CSS will be added to the _HEAD DOM_ and _html_ will be added to the *dom_element*
  * *dom_element*: is the refence (just required when loading _html_) to where you want the html to be loaded. For example: '#el-id', '.el-class', 'el'
+
+Other options can be passed in this object:
+ * *bgColor*: the background color of the overlay (*Default:* #000000);
+ * *bgOpacity*: the opacity of the overlay (*Default:* 0.85);
+ * *message*: the message shown when loading. Has the following arguments: %f = the file being loaded, %p = percentage loaded, %c = files loaded, %t = total files (*Default:* (Portuguese) Aguarde! Carregando o site: %f (%p% | %c de %t));
+ * *ending_message*: the message shown when loading is complete (*Default:* (Portuguese) Uma vez carregado o site não irá mais ser carregado.);
+ * *fadeOutSpeed*: the speed the overlay will fade out once it finishes loading (*Default:* fast);
 
 Please help testing this plugin so I can improve it!
 Collaborator will have their names cited on the project :)
