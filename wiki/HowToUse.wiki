@@ -1,5 +1,5 @@
 #summary Wiki How to Use the Plugin
-#labels Featured
+#labels Featured,en-us
 
 == Introduction ==
 Welcome to the How To Use of the jquery-preloader plugin. Using the plugin is pretty easy (and hopefully this page will be very short).
