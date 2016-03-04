@@ -1,0 +1,63 @@
+## Introduction ##
+Welcome to the How To Use of the jquery-preloader plugin. Using the plugin is pretty easy (and hopefully this page will be very short).
+
+## Requirements ##
+The plugin requires only one thing: latest jQuery, that is it. Pretty easy :)
+
+## Usage ##
+The script should be loaded after the latest jQuery is loaded, like:
+```
+<script type="text/javascript" src="./jquery.loader.js"></script>
+```
+
+All function will run after the page is completely loaded! And now you are asking me: so what is the preload about?! The preload actually load the content. If you check [my portfolio](http://www.guilhermemori.com.br) you will note that all the content is loaded using the preloader here presented.
+
+So, as you can see below, you just have to call the function as stated.
+
+```
+<script type="text/javascript">
+$(function (){
+    $.preLoadGUI();
+});	
+</script>
+```
+
+You will have to pass an Object with minimum content the load with an Array of elements to the function to load, here is how is an exemple:
+
+```
+<script type="text/javascript">
+$(function (){
+    $.preLoadGUI({load: [
+        ['bg.png', true],
+        ['jquery.progressbar.js'],
+        ['port.css'],
+        ['content.html', 'body']
+    ]});
+});	
+</script>
+```
+
+You will pass an object composed of other arrays/values. Bellow there is all elements that can be passed to the configuration:
+
+  * **load**: is an array containing all files to be loaded using the following format:
+    * **address\_to\_load.ext**: just put the address to load (can be an url etc);
+    * **dom\_element**: is the refence (just required when loading _html_) to where you want the html to be loaded. For example: '#el-id', '.el-class', 'el';
+    * **cache**: optional element, if set to true the content will be cached (in case of _html_ file, this will be the third argument, else, it will be the second);
+  * **bgColor**: the background color of the overlay (**Default:** #000000);
+  * **bgOpacity**: the opacity of the overlay (**Default:** 0.85);
+  * **message**: the message shown when loading. Has the following arguments: %f = the file being loaded, %p = percentage loaded, %c = files loaded, %t = total files (**Default:** (Portuguese) Aguarde! Carregando o site: %f (%p% | %c de %t));
+  * **ending\_message**: the message shown when loading is complete (**Default:** (Portuguese) Uma vez carregado o site não irá mais ser carregado.);
+  * **fadeOutSpeed**: the speed the overlay will fade out once it finishes loading (**Default:** fast);
+  * **imageExt**: default extensions used as image are png, jpg, jpeg, bmp & gif. Passing this option more extensions will be added;
+  * **cssExt**: default extension used as css is css. Passing this option more extensions will be added;
+  * **jsExt**: default extension used as JavaScript is js. Passing this option more extensions will be added;
+  * **htmlExt**: default extensions used as HTML (appended to other elements) is html, htm, php, asp & apsx. Passing this option more extensions will be added;
+  * **otherExt**: you can add other extensions to try to preload as an Ajax (will not be parsed or added);
+  * **callbackEach**: a callback that will be called each time a file is loaded. The argument passed is the array used to load the file;
+  * **callbackEnd**: a callback to be called after loading all files.
+
+Please help testing this plugin so I can improve it!
+Collaborator will have their names cited on the project :)
+If you want, contact me by email!
+
+Thank You, Guilherme Mori {guilherme.danna.mori}@gmail.com
